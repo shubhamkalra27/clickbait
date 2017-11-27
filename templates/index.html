@@ -1,0 +1,119 @@
+{% include  "top.html" %}
+ <section class="section">
+    <div class="container">
+        <a href=""><h1 class="title"> Clickbait Detector</h1></a>
+        <br><br>
+        <p class="subtitle">
+            <!--Paste your headline here-->
+        </p>
+        <form method="post" enctype="multipart/form-data" action="/">
+            <div class="field has-addons has-addons-centered">
+                    <div class="control is-expanded" style="flex-grow: 0.5; ">
+                        <input class="input is-large " type="text" name="text" placeholder="Paste your headline" autofocus>
+                    </div>
+                    <div class="control" style="padding: 0px 0px 0 10px; ">
+                        <input class="button is-large is-primary" type="submit" value="submit">
+                    </div>
+            </div>
+        </form>
+        <br/>
+
+
+        {% if (messages['result'] != '' ) %}
+
+            <h3 id="headline" class="title is-4 is-spaced bd-anchor-title">
+              Headline:
+
+            <a class="bd-anchor-link" href="#result" style="position: absolute; right: calc(100% + 1rem);">#</a>
+            </h3>
+            <div class="bd-snippet bd-is-vertical bd-is-1">
+                <h3 class="title is-3">{{  (messages['sentence']) }}</h3>
+            </div>
+            <br>
+
+            <h3 id="result" class="title is-4 is-spaced bd-anchor-title">
+              Result: {{  (messages['result'])['tag']  }}
+
+            <a class="bd-anchor-link" href="#result" style="position: absolute; right: calc(100% + 1rem);">#</a>
+            </h3>
+            Probability of Clickbait = {{  ((messages['result'])['P-clickbate']*100)  }}%
+            <progress class="progress is-small {{  (messages['result'])['color']  }}" value="{{  ((messages['result'])['P-clickbate']*100) }}" max="100">15%</progress>
+        {% else %}
+        <br>
+        <div class="bd-snippet bd-is-vertical bd-is-1">
+            </div>
+        <br>
+            <h3 class="title is-3"> Sample Headlines to try</h3>
+        <div class="columns">
+
+            <div class="column">
+            <table class="table is-hoverable">
+              <thead>
+                <tr>
+                  <th>Baity Headlines</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>We Can Tell You Who You Should Date With Just Four Questions About Biryani</td>
+                </tr>
+                <tr>
+                  <td>23 Things You Probably Shouldn't Say To Someone With Depression</td>
+                </tr>
+                <tr>
+                  <td>17 Thoughts We All Had While Stalking Our Exes On Facebook</td>
+                </tr>
+                <tr>
+                  <td>How Well Do You Remember Season 5 Of "The Walking Dead"</td>
+                </tr>
+                <tr>
+                  <td>Adele Said A Mic Dropped In The Piano And That's Why Her Grammy Performance Was Off</td>
+                </tr>
+              <tr>
+                  <td>These Could Be The Coolest Baby Names In 2016</td>
+              </tr>
+              </tbody>
+            </table>
+            </div>
+
+             <div class="column">
+            <table class="table is-hoverable">
+              <thead>
+                <tr>
+                  <th>Unattractive Journalism</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Nepal goes to the polls for historic vote</td>
+                </tr>
+                <tr>
+                  <td>Black Friday Background Checks Reportedly Soar To Record High</td>
+                </tr>
+                <tr>
+                  <td>6 Possible Hurdles For The GOP Tax Plan</td>
+                </tr>
+                <tr>
+                  <td>Ash Fills The Sky As Bali's Mount Agung Erupts</td>
+                </tr>
+                <tr>
+                  <td>Seattle sports world reacts as Seahawks pull away in second half to beat 49ers in San Francisco</td>
+                </tr>
+              <tr>
+                  <td>Smith praises Australia’s Ashes grit</td>
+              </tr>
+              </tbody>
+            </table>
+            </div>
+        </div>
+        {% endif %}
+
+
+    </div>
+ </section>
+
+
+
+
+
+{% include "bottom.html" %}
