@@ -1,5 +1,5 @@
 from flask import Flask, request, redirect, url_for, render_template
-import pdb
+import pdb, sys
 import runner
 app = Flask(__name__)
 
@@ -13,6 +13,9 @@ def index():
         result = ''
         headline_to_check = ''
     # return "hello"
+    print("headline = " + headline_to_check, file=sys.stderr)
+    print("\n")
+    print("result = " + str(result), file=sys.stderr)
     return render_template('index.html',  messages={'result':result, 'sentence':headline_to_check})
 
 if __name__ == '__main__':

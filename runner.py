@@ -1,6 +1,9 @@
 from sklearn.externals import joblib
+import os
 
-model_1 = joblib.load('model_1.pkl')
+script_dir = os.path.dirname(__file__)
+model_path = os.path.join(script_dir,r'static',r'model_1.pkl')
+model_1 = joblib.load(model_path)
 
 
 def scoring(headline):
@@ -23,3 +26,6 @@ def scoring(headline):
     prob = {'P-clickbate': round(pred_score[1],3), 'P-notClickbate': round(pred_score[0],3), 'tag': tag, 'color':color}
     return prob
 
+if __name__ == "__main__":
+    result = scoring('6 Possible Hurdles For The GOP Tax Plan')
+    print(result)
