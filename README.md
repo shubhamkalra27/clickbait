@@ -2,6 +2,8 @@
 
 A simple flask server with classifier is deployed on - http://clickbait.pythonanywhere.com/ 
 
+Blog post about it - https://shubhamkalra27.github.io/clickbait-detector/ 
+
 Repository is pretty self explainatory - a quick introduction for forgetful future me
 
 `model.ipynb` walks you through training and testing the model - scoring and accuracy added too 
